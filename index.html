@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Awaking Hero</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #06060f;
+      --bg2: #0d0d1f;
+      --purple: #7850ff;
+      --purple-dim: #4a30aa;
+      --gold: #c9a84c;
+      --gold-dim: #7a6030;
+      --text: #c8c0e0;
+      --text-dim: #7a7299;
+      --border: rgba(120,80,255,0.18);
+      --glow: 0 0 32px rgba(120,80,255,0.25);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* Background rune pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120,80,255,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 60px 32px 100px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 64px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      display: block;
+      filter: drop-shadow(0 0 16px rgba(120,80,255,0.6));
+    }
+
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+      text-shadow: 0 0 40px rgba(120,80,255,0.5);
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .last-updated {
+      font-size: 14px;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 56px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .lang-btn {
+      padding: 10px 32px;
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--purple);
+      color: #fff;
+      text-shadow: 0 0 12px rgba(255,255,255,0.4);
+    }
+
+    .lang-btn:hover:not(.active) {
+      background: rgba(120,80,255,0.15);
+      color: var(--text);
+    }
+
+    /* Content sections */
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+
+    section {
+      margin-bottom: 48px;
+      padding: 32px 36px;
+      background: rgba(13,13,31,0.6);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      position: relative;
+      backdrop-filter: blur(4px);
+    }
+
+    section::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--purple), transparent);
+      border-radius: 4px 0 0 4px;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    p { margin-bottom: 14px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    li::marker { color: var(--purple); }
+
+    a {
+      color: var(--purple);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(120,80,255,0.3);
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    a:hover {
+      color: #a080ff;
+      border-color: rgba(160,128,255,0.6);
+    }
+
+    strong { color: #fff; font-weight: 400; }
+
+    footer {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--text-dim);
+      font-style: italic;
+    }
+
+    .rune-divider {
+      text-align: center;
+      color: var(--purple-dim);
+      font-size: 20px;
+      letter-spacing: 0.4em;
+      margin: 40px 0;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <span class="hero-icon">⚔️</span>
+    <h1>Awaking Hero</h1>
+    <p class="subtitle">RPG Training · Privacy Policy</p>
+    <p class="last-updated">Last updated: June 2025</p>
+  </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('nl')">NL</button>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="lang-content active" id="lang-en">
+
+    <section>
+      <h2>1. Introduction</h2>
+      <p>Welcome to <strong>Awaking Hero: RPG Training</strong> ("the App"), developed by <strong>kingtdes</strong>. This Privacy Policy explains how we collect, use, and protect your personal information when you use our app.</p>
+      <p>By using Awaking Hero, you agree to the terms described in this policy. If you do not agree, please discontinue use of the app.</p>
+    </section>
+
+    <section>
+      <h2>2. Information We Collect</h2>
+      <p>We may collect the following types of information:</p>
+      <ul>
+        <li><strong>Account information:</strong> email address and display name when you register via Firebase Authentication.</li>
+        <li><strong>Workout data:</strong> exercises, sets, reps, and training history you log in the app.</li>
+        <li><strong>Game progress:</strong> XP, hero level, quests completed, and clan membership.</li>
+        <li><strong>Device information:</strong> device type, operating system, and app version for crash reporting and analytics.</li>
+        <li><strong>Notifications:</strong> if you opt in, we send push notifications about quests, challenges, and clan activity.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. How We Use Your Information</h2>
+      <p>Your data is used to:</p>
+      <ul>
+        <li>Provide and improve the core app experience (workouts, XP, leveling).</li>
+        <li>Sync your hero progress and workout history across devices.</li>
+        <li>Enable clan features and social leaderboards.</li>
+        <li>Send you relevant push notifications (only if you've enabled them).</li>
+        <li>Diagnose technical issues and improve app stability.</li>
+      </ul>
+      <p>We do <strong>not</strong> sell your personal data to third parties.</p>
+    </section>
+
+    <section>
+      <h2>4. Firebase & Third-Party Services</h2>
+      <p>Awaking Hero uses <strong>Google Firebase</strong> for authentication, database storage, and push notifications. Firebase is operated by Google LLC and is subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>.</p>
+      <p>We may also use Firebase Analytics to understand how users interact with the app in aggregate. No personally identifiable information is shared with analytics providers beyond what Firebase collects by default.</p>
+    </section>
+
+    <section>
+      <h2>5. Data Retention</h2>
+      <p>We retain your data for as long as your account is active. If you delete your account, your personal data will be removed from our systems within 30 days, except where retention is required by law.</p>
+    </section>
+
+    <section>
+      <h2>6. Your Rights</h2>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Access the personal data we hold about you.</li>
+        <li>Request correction of inaccurate data.</li>
+        <li>Request deletion of your account and data.</li>
+        <li>Withdraw consent for push notifications at any time via your device settings.</li>
+      </ul>
+      <p>To exercise these rights, contact us at: <a href="mailto:kingtdes@gmail.com">kingtdes@gmail.com</a></p>
+    </section>
+
+    <section>
+      <h2>7. Children's Privacy</h2>
+      <p>Awaking Hero is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected such information, please contact us immediately.</p>
+    </section>
+
+    <section>
+      <h2>8. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated date. Continued use of the app after changes constitutes acceptance of the new policy.</p>
+    </section>
+
+    <section>
+      <h2>9. Contact</h2>
+      <p>Questions about this Privacy Policy? Reach us at:</p>
+      <p><strong>Developer:</strong> kingtdes<br/>
+      <strong>Email:</strong> <a href="mailto:kingtdes@gmail.com">kingtdes@gmail.com</a><br/>
+      <strong>App:</strong> Awaking Hero: RPG Training<br/>
+      <strong>Package:</strong> com.kingtdes.arisefix</p>
+    </section>
+
+  </div>
+
+  <!-- NEDERLANDS -->
+  <div class="lang-content" id="lang-nl">
+
+    <section>
+      <h2>1. Introductie</h2>
+      <p>Welkom bij <strong>Awaking Hero: RPG Training</strong> ("de App"), ontwikkeld door <strong>kingtdes</strong>. Dit Privacybeleid legt uit hoe wij je persoonlijke gegevens verzamelen, gebruiken en beschermen wanneer je onze app gebruikt.</p>
+      <p>Door Awaking Hero te gebruiken, ga je akkoord met de voorwaarden die in dit beleid worden beschreven. Als je het hier niet mee eens bent, stop dan met het gebruik van de app.</p>
+    </section>
+
+    <section>
+      <h2>2. Informatie Die We Verzamelen</h2>
+      <p>We kunnen de volgende soorten informatie verzamelen:</p>
+      <ul>
+        <li><strong>Accountgegevens:</strong> e-mailadres en weergavenaam wanneer je je registreert via Firebase Authentication.</li>
+        <li><strong>Workout data:</strong> oefeningen, sets, herhalingen en trainingsgeschiedenis die je in de app registreert.</li>
+        <li><strong>Spelvoortgang:</strong> XP, held-level, voltooide quests en clanlidmaatschap.</li>
+        <li><strong>Apparaatinformatie:</strong> apparaattype, besturingssysteem en app-versie voor crashrapportage en analyses.</li>
+        <li><strong>Meldingen:</strong> als je je aanmeldt, sturen we pushmeldingen over quests, uitdagingen en clanactiviteit.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Hoe We Je Informatie Gebruiken</h2>
+      <p>Je gegevens worden gebruikt om:</p>
+      <ul>
+        <li>De kern app-ervaring te leveren en te verbeteren (workouts, XP, levelen).</li>
+        <li>Je heldenvoortgang en trainingsgeschiedenis te synchroniseren tussen apparaten.</li>
+        <li>Clanfuncties en sociale leaderboards mogelijk te maken.</li>
+        <li>Je relevante pushmeldingen te sturen (alleen als je deze hebt ingeschakeld).</li>
+        <li>Technische problemen te diagnosticeren en de stabiliteit van de app te verbeteren.</li>
+      </ul>
+      <p>Wij <strong>verkopen</strong> je persoonlijke gegevens niet aan derden.</p>
+    </section>
+
+    <section>
+      <h2>4. Firebase & Diensten van Derden</h2>
+      <p>Awaking Hero gebruikt <strong>Google Firebase</strong> voor authenticatie, database-opslag en pushmeldingen. Firebase wordt beheerd door Google LLC en valt onder <a href="https://policies.google.com/privacy" target="_blank">het privacybeleid van Google</a>.</p>
+      <p>We kunnen ook Firebase Analytics gebruiken om te begrijpen hoe gebruikers in het algemeen met de app omgaan. Er worden geen persoonlijk identificeerbare gegevens gedeeld met analytics-providers, buiten wat Firebase standaard verzamelt.</p>
+    </section>
+
+    <section>
+      <h2>5. Bewaartermijn van Gegevens</h2>
+      <p>We bewaren je gegevens zolang je account actief is. Als je je account verwijdert, worden je persoonlijke gegevens binnen 30 dagen uit onze systemen verwijderd, tenzij bewaring wettelijk verplicht is.</p>
+    </section>
+
+    <section>
+      <h2>6. Jouw Rechten</h2>
+      <p>Je hebt het recht om:</p>
+      <ul>
+        <li>De persoonlijke gegevens in te zien die wij over jou bewaren.</li>
+        <li>Correctie van onjuiste gegevens te verzoeken.</li>
+        <li>Verwijdering van je account en gegevens te verzoeken.</li>
+        <li>Toestemming voor pushmeldingen op elk moment in te trekken via je apparaatinstellingen.</li>
+      </ul>
+      <p>Neem contact met ons op via: <a href="mailto:kingtdes@gmail.com">kingtdes@gmail.com</a></p>
+    </section>
+
+    <section>
+      <h2>7. Privacy van Kinderen</h2>
+      <p>Awaking Hero is niet bedoeld voor kinderen onder de 13 jaar. We verzamelen niet bewust persoonlijke gegevens van kinderen onder de 13. Als je denkt dat we per ongeluk dergelijke informatie hebben verzameld, neem dan onmiddellijk contact met ons op.</p>
+    </section>
+
+    <section>
+      <h2>8. Wijzigingen in Dit Beleid</h2>
+      <p>We kunnen dit Privacybeleid van tijd tot tijd bijwerken. Eventuele wijzigingen worden op deze pagina geplaatst met een bijgewerkte datum. Voortgezet gebruik van de app na wijzigingen betekent acceptatie van het nieuwe beleid.</p>
+    </section>
+
+    <section>
+      <h2>9. Contact</h2>
+      <p>Vragen over dit Privacybeleid? Neem contact op via:</p>
+      <p><strong>Ontwikkelaar:</strong> kingtdes<br/>
+      <strong>E-mail:</strong> <a href="mailto:kingtdes@gmail.com">kingtdes@gmail.com</a><br/>
+      <strong>App:</strong> Awaking Hero: RPG Training<br/>
+      <strong>Package:</strong> com.kingtdes.arisefix</p>
+    </section>
+
+  </div>
+
+  <div class="rune-divider">ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ</div>
+
+  <footer>
+    &copy; 2025 kingtdes · Awaking Hero: RPG Training · All rights reserved
+  </footer>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
