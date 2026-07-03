@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delete Account — Awaking Hero</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #06060f;
+      --bg2: #0d0d1f;
+      --purple: #7850ff;
+      --purple-dim: #4a30aa;
+      --gold: #c9a84c;
+      --gold-dim: #7a6030;
+      --text: #c8c0e0;
+      --text-dim: #7a7299;
+      --border: rgba(120,80,255,0.18);
+      --glow: 0 0 32px rgba(120,80,255,0.25);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120,80,255,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .wrapper { position: relative; z-index: 1; max-width: 820px; margin: 0 auto; padding: 60px 32px 100px; }
+    header { text-align: center; margin-bottom: 64px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+    .hero-icon { font-size: 48px; margin-bottom: 16px; display: block; filter: drop-shadow(0 0 16px rgba(120,80,255,0.6)); }
+    h1 { font-family: 'Cinzel', serif; font-size: clamp(28px, 5vw, 42px); font-weight: 700; color: #fff; letter-spacing: 0.04em; text-shadow: 0 0 40px rgba(120,80,255,0.5); margin-bottom: 8px; }
+    .subtitle { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; }
+    .last-updated { font-size: 14px; color: var(--text-dim); font-style: italic; }
+    .lang-toggle { display: flex; justify-content: center; gap: 0; margin-bottom: 56px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; width: fit-content; margin-left: auto; margin-right: auto; }
+    .lang-btn { padding: 10px 32px; background: transparent; border: none; color: var(--text-dim); font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.15em; cursor: pointer; transition: all 0.2s; }
+    .lang-btn.active { background: var(--purple); color: #fff; text-shadow: 0 0 12px rgba(255,255,255,0.4); }
+    .lang-btn:hover:not(.active) { background: rgba(120,80,255,0.15); color: var(--text); }
+    .lang-content { display: none; }
+    .lang-content.active { display: block; }
+    section { margin-bottom: 48px; padding: 32px 36px; background: rgba(13,13,31,0.6); border: 1px solid var(--border); border-radius: 4px; position: relative; backdrop-filter: blur(4px); }
+    section::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, var(--purple), transparent); border-radius: 4px 0 0 4px; }
+    h2 { font-family: 'Cinzel', serif; font-size: 16px; font-weight: 600; color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px; }
+    p { margin-bottom: 14px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+    ul { padding-left: 20px; margin-bottom: 14px; }
+    ol { padding-left: 22px; margin-bottom: 14px; }
+    li { margin-bottom: 8px; color: var(--text); }
+    li::marker { color: var(--purple); }
+    a { color: var(--purple); text-decoration: none; border-bottom: 1px solid rgba(120,80,255,0.3); transition: color 0.2s, border-color 0.2s; }
+    a:hover { color: #a080ff; border-color: rgba(160,128,255,0.6); }
+    strong { color: #fff; font-weight: 400; }
+    .button {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 12px 24px;
+      background: var(--purple);
+      color: #fff !important;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    footer { text-align: center; padding-top: 40px; border-top: 1px solid var(--border); font-size: 14px; color: var(--text-dim); font-style: italic; }
+    .rune-divider { text-align: center; color: var(--purple-dim); font-size: 20px; letter-spacing: 0.4em; margin: 40px 0; opacity: 0.5; }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <span class="hero-icon">⚔️</span>
+    <h1>Awaking Hero</h1>
+    <p class="subtitle">RPG Training · Delete Account &amp; Data</p>
+    <p class="last-updated">Last updated: July 2026</p>
+  </header>
+
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" onclick="setLang('nl')">NL</button>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="lang-content active" id="lang-en">
+
+    <section>
+      <h2>1. Two ways to remove your data</h2>
+      <p><strong>A. Reset local progress (in-app, instant).</strong> Open Awaking Hero → Profile / Settings → "Reset app data". This immediately erases your local hero progress, workout history, and gold from this device. This does not delete your Firebase account or any clan data stored in the cloud.</p>
+      <p><strong>B. Delete your account and all associated data (via request).</strong> Follow the steps below.</p>
+    </section>
+
+    <section>
+      <h2>2. How to request full account deletion</h2>
+      <ol>
+        <li>Send an email to <a href="mailto:kingtdes@gmail.com?subject=Account%20Deletion%20Request%20-%20Awaking%20Hero">kingtdes@gmail.com</a> with the subject line "Account Deletion Request".</li>
+        <li>Include the email address associated with your account (the one used for Google Sign-In or email/password login) so we can locate it.</li>
+        <li>We will confirm your identity if needed, then process the deletion.</li>
+      </ol>
+      <a class="button" href="mailto:kingtdes@gmail.com?subject=Account%20Deletion%20Request%20-%20Awaking%20Hero">Request Account Deletion</a>
+    </section>
+
+    <section>
+      <h2>3. What gets deleted, and when</h2>
+      <ul>
+        <li><strong>Account credentials</strong> (Firebase Authentication record, e.g. email/Google sign-in link) — deleted.</li>
+        <li><strong>Cloud-stored data</strong> (clan membership/ID, and any other data synced to our backend) — deleted.</li>
+        <li><strong>Crash/diagnostic logs</strong> (Sentry) — deleted or anonymized; in any case automatically purged after a maximum of 90 days regardless of your request, as described in our <a href="https://kingtdes.github.io/awaking-hero-privacy/">Privacy Policy</a>.</li>
+        <li><strong>Purchase records</strong> — payment records processed by Google Play are retained by Google per their own policies and are not something we can delete on Google's behalf; our own reference to which product you purchased is deleted.</li>
+      </ul>
+      <p>Full deletion is completed within <strong>30 days</strong> of a verified request, except where we are legally required to retain certain records for a longer period (e.g. tax/financial records related to purchases).</p>
+    </section>
+
+    <section>
+      <h2>4. Data that never reaches us in the first place</h2>
+      <p>Health data (sleep, heart rate, steps) is processed entirely on your device via Apple HealthKit or Android Health Connect and is never sent to us — there is nothing on our servers to delete for this category. You can revoke this access anytime in your device's system settings.</p>
+    </section>
+
+    <section>
+      <h2>5. Questions</h2>
+      <p>See our full <a href="https://kingtdes.github.io/awaking-hero-privacy/">Privacy Policy</a> for more detail, or contact <a href="mailto:kingtdes@gmail.com">kingtdes@gmail.com</a>.</p>
+    </section>
+
+  </div>
+
+  <!-- NEDERLANDS -->
+  <div class="lang-content" id="lang-nl">
+
+    <section>
+      <h2>1. Twee manieren om je gegevens te verwijderen</h2>
+      <p><strong>A. Lokale voortgang resetten (in de app, direct).</strong> Open Awaking Hero → Profiel / Instellingen → "App-data resetten". Dit wist direct je lokale heldenvoortgang, trainingsgeschiedenis en goud op dit apparaat. Dit verwijdert je Firebase-account of eventuele clan-data in de cloud niet.</p>
+      <p><strong>B. Je account en alle bijbehorende gegevens volledig laten verwijderen (op verzoek).</strong> Volg onderstaande stappen.</p>
+    </section>
+
+    <section>
+      <h2>2. Hoe vraag je volledige accountverwijdering aan</h2>
+      <ol>
+        <li>Stuur een e-mail naar <a href="mailto:kingtdes@gmail.com?subject=Account%20Deletion%20Request%20-%20Awaking%20Hero">kingtdes@gmail.com</a> met als onderwerp "Account Deletion Request".</li>
+        <li>Vermeld het e-mailadres dat bij je account hoort (waarmee je inlogt via Google of e-mail/wachtwoord), zodat we het kunnen terugvinden.</li>
+        <li>Indien nodig bevestigen we je identiteit, waarna we de verwijdering verwerken.</li>
+      </ol>
+      <a class="button" href="mailto:kingtdes@gmail.com?subject=Account%20Deletion%20Request%20-%20Awaking%20Hero">Accountverwijdering aanvragen</a>
+    </section>
+
+    <section>
+      <h2>3. Wat wordt verwijderd, en wanneer</h2>
+      <ul>
+        <li><strong>Accountgegevens</strong> (Firebase Authentication-record, bijv. e-mail-/Google-inlogkoppeling) — verwijderd.</li>
+        <li><strong>Cloud-opgeslagen data</strong> (clanlidmaatschap/-ID, en overige data gesynchroniseerd met onze backend) — verwijderd.</li>
+        <li><strong>Crash-/diagnostische logs</strong> (Sentry) — verwijderd of geanonimiseerd; sowieso automatisch verwijderd na maximaal 90 dagen, ongeacht je verzoek, zoals beschreven in ons <a href="https://kingtdes.github.io/awaking-hero-privacy/">Privacybeleid</a>.</li>
+        <li><strong>Aankoopgegevens</strong> — betaalgegevens verwerkt door Google Play worden door Google zelf bewaard volgens hun eigen beleid; dat kunnen wij niet namens Google verwijderen. Onze eigen referentie naar welk product je hebt gekocht wordt wel verwijderd.</li>
+      </ul>
+      <p>Volledige verwijdering wordt afgerond binnen <strong>30 dagen</strong> na een geverifieerd verzoek, tenzij we wettelijk verplicht zijn bepaalde gegevens langer te bewaren (bijv. fiscale/financiële gegevens rond aankopen).</p>
+    </section>
+
+    <section>
+      <h2>4. Gegevens die ons nooit bereiken</h2>
+      <p>Gezondheidsgegevens (slaap, hartslag, stappen) worden volledig op je eigen apparaat verwerkt via Apple HealthKit of Android Health Connect en nooit naar ons verzonden — er staat dus niks op onze servers om voor deze categorie te verwijderen. Je kunt deze toestemming op elk moment intrekken via de systeeminstellingen van je apparaat.</p>
+    </section>
+
+    <section>
+      <h2>5. Vragen</h2>
+      <p>Zie ons volledige <a href="https://kingtdes.github.io/awaking-hero-privacy/">Privacybeleid</a> voor meer details, of neem contact op via <a href="mailto:kingtdes@gmail.com">kingtdes@gmail.com</a>.</p>
+    </section>
+
+  </div>
+
+  <div class="rune-divider">ᚠ ᚢ ᚦ ᚨ ᚱ ᚲ</div>
+
+  <footer>
+    &copy; 2026 kingtdes · Awaking Hero: RPG Training · All rights reserved
+  </footer>
+
+</div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+</body>
+</html>
